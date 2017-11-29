@@ -1,0 +1,308 @@
+Script started on Wednesday 29 June 2016 12:24:26 PM IST
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ ls
+[0m[01;34mLDD_CDD_01_fptr[0m      [01;34mLDD_CDD_03_Memory[0m         [01;34mLDD_CDD_05_dynamic[0m   [01;34mLDD_CDD_07_sysfs[0m  README
+[01;34mLDD_CDD_02_chartemp[0m  [01;34mLDD_CDD_04_regchar_works[0m  [01;34mLDD_CDD_06_Multiple[0m  Makefile          typescript
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ lsr README 
+No command 'lsr' found, did you mean:
+ Command 'lsar' from package 'unar' (universe)
+ Command 'lsx' from package 'suckless-tools' (universe)
+ Command 'lpr' from package 'lpr' (universe)
+ Command 'lpr' from package 'cups-bsd' (main)
+ Command 'lpr' from package 'lprng' (universe)
+ Command 'lpr' from package 'gnuspool' (universe)
+ Command 'lrs' from package 'lrslib' (universe)
+ Command 'lsh' from package 'lsh-client' (universe)
+ Command 'sr' from package 'surfraw' (universe)
+ Command 'ls' from package 'coreutils' (main)
+ Command 'lsw' from package 'suckless-tools' (universe)
+ Command 'csr' from package 'rheolef' (universe)
+lsr: command not found
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ lsr README [1P[1@p
+lpr: Error - no default destination available.
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ lpr README ashok
+lpr: Error - unable to access "ashok" - No such file or directory
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ [H[2J]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ date +%d/%m/%y
+29/06/16
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ vim README 
+[?1049h[?1h=[2;1H▽[6n[1;1H  [1;1H[1;41r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[41;1H"README" 54L, 1772C[>c[2;1HCharacter Device Drivers Notes:
+
+
+Charater Device File (Write followed by read not fetch data)
+Regular File (Write followed by read than data available)
+
+
+1. Application[10;6HBased on the name of the device file
+2. Charater Device File (CDF)[12;6HBased on the no.(major) of the device file
+3. Charater Device Driver (CDD)[14;6HBased on the h/w protocol
+4. Charater Device (CD)
+
+Major Number and Minor Numbers:
+Major Number: Kernel uniquely identify each device by a number
+Minor Number: Minor number to distinguish b/w difference pieces of H/W.
+
+2.4 kernel major (8 bit- 256), minor (8bit- 256)
+2.6 kernel major (12 bit- 4K) ,minor (20 bit - 1M)[26;1HDevice Files are created by the mknod command:
+----------------------------------------------
+mknod <name_device>  <device_type> <major> <minor> [-m modes][30;9HExample:[31;9Hmknod /dev/MyCharDevice c 253 15 -m 0666
+
+The below examples explain How to write a Character Device Driver.
+
+
+LDD_CDD_01: This example explains function pointer basics and how to[37;14Hinitialize a function pointer in a structure.
+
+LDD_CDD_02: This example shows how to write a Character Device Driver[40;13HTemplate. It is also called as NULL driver /dev/null.[41;127H1,0-1[9CTop[1;1H[?12l[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[41;1H[K[41;1H:[?12l[?25h![?25l[?12l[?25hl[?25l[?12l[?25hs[?25l[?12l[?25h[?25l:!ls[?1l>[?12l[?25h[?1049l
+LDD_CDD_01_fptr      LDD_CDD_03_Memory	       LDD_CDD_05_dynamic   LDD_CDD_07_sysfs  README
+LDD_CDD_02_chartemp  LDD_CDD_04_regchar_works  LDD_CDD_06_Multiple  Makefile	      typescript
+
+Press ENTER or type command to continue[?1049h[?1h=[27m[m[H[2J[?25l[2;1HCharacter Device Drivers Notes:
+
+
+Charater Device File (Write followed by read not fetch data)
+Regular File (Write followed by read than data available)
+
+
+1. Application[10;6HBased on the name of the device file
+2. Charater Device File (CDF)[12;6HBased on the no.(major) of the device file
+3. Charater Device Driver (CDD)[14;6HBased on the h/w protocol
+4. Charater Device (CD)
+
+Major Number and Minor Numbers:
+Major Number: Kernel uniquely identify each device by a number
+Minor Number: Minor number to distinguish b/w difference pieces of H/W.
+
+2.4 kernel major (8 bit- 256), minor (8bit- 256)
+2.6 kernel major (12 bit- 4K) ,minor (20 bit - 1M)[26;1HDevice Files are created by the mknod command:
+----------------------------------------------
+mknod <name_device>  <device_type> <major> <minor> [-m modes][30;9HExample:[31;9Hmknod /dev/MyCharDevice c 253 15 -m 0666
+
+The below examples explain How to write a Character Device Driver.
+
+
+LDD_CDD_01: This example explains function pointer basics and how to[37;14Hinitialize a function pointer in a structure.
+
+LDD_CDD_02: This example shows how to write a Character Device Driver[40;13HTemplate. It is also called as NULL driver /dev/null.[41;127H1,0-1[9CTop[1;1H[?12l[?25h[?25l[?12l[?25h[?25l[41;1H[1m-- INSERT --[m[41;127H[K[41;127H1,1[11CTop[1;1H[?12l[?25h[?25ls[41;129H2[1;2H[?12l[?25h[?25la[41;129H3[1;3H[?12l[?25h[?25lf[41;129H4[1;4H[?12l[?25h[?25l[1;3H[K[41;129H3[1;3H[?12l[?25h[?25l[1;2H[K[41;129H2[1;2H[?12l[?25h[?25l[1;1H[K[41;129H1[1;1H[?12l[?25h[41;1H[K[1;1H[?25l[41;127H1,0-1[9CTop[1;1H[?12l[?25h[?25l[41;127H[K[41;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l"README" 54L, 1772C written[?1l>[?12l[?25h[?1049l
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ [H[2J]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ cat /proc[K[K[K[K[K[K[K[K[Kps
+  PID TTY          TIME CMD
+ 3457 pts/0    00:00:00 bash
+ 4329 pts/0    00:00:00 ps
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ o[Kps -eaf
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 10:29 ?        00:00:01 /sbin/init
+root         2     0  0 10:29 ?        00:00:00 [kthreadd]
+root         3     2  0 10:29 ?        00:00:00 [ksoftirqd/0]
+root         5     2  0 10:29 ?        00:00:00 [kworker/0:0H]
+root         7     2  0 10:29 ?        00:00:03 [rcu_sched]
+root         8     2  0 10:29 ?        00:00:00 [rcuos/0]
+root         9     2  0 10:29 ?        00:00:00 [rcuos/1]
+root        10     2  0 10:29 ?        00:00:00 [rcuos/2]
+root        11     2  0 10:29 ?        00:00:02 [rcuos/3]
+root        12     2  0 10:29 ?        00:00:00 [rcuos/4]
+root        13     2  0 10:29 ?        00:00:00 [rcuos/5]
+root        14     2  0 10:29 ?        00:00:00 [rcuos/6]
+root        15     2  0 10:29 ?        00:00:00 [rcuos/7]
+root        16     2  0 10:29 ?        00:00:00 [rcu_bh]
+root        17     2  0 10:29 ?        00:00:00 [rcuob/0]
+root        18     2  0 10:29 ?        00:00:00 [rcuob/1]
+root        19     2  0 10:29 ?        00:00:00 [rcuob/2]
+root        20     2  0 10:29 ?        00:00:00 [rcuob/3]
+root        21     2  0 10:29 ?        00:00:00 [rcuob/4]
+root        22     2  0 10:29 ?        00:00:00 [rcuob/5]
+root        23     2  0 10:29 ?        00:00:00 [rcuob/6]
+root        24     2  0 10:29 ?        00:00:00 [rcuob/7]
+root        25     2  0 10:29 ?        00:00:27 [migration/0]
+root        26     2  0 10:29 ?        00:00:00 [watchdog/0]
+root        27     2  0 10:29 ?        00:00:00 [watchdog/1]
+root        28     2  0 10:29 ?        00:00:05 [migration/1]
+root        29     2  0 10:29 ?        00:00:00 [ksoftirqd/1]
+root        31     2  0 10:29 ?        00:00:00 [kworker/1:0H]
+root        32     2  0 10:29 ?        00:00:00 [watchdog/2]
+root        33     2  0 10:29 ?        00:00:18 [migration/2]
+root        34     2  0 10:29 ?        00:00:00 [ksoftirqd/2]
+root        36     2  0 10:29 ?        00:00:00 [kworker/2:0H]
+root        37     2  0 10:29 ?        00:00:00 [watchdog/3]
+root        38     2  0 10:29 ?        00:00:17 [migration/3]
+root        39     2  0 10:29 ?        00:00:00 [ksoftirqd/3]
+root        41     2  0 10:29 ?        00:00:00 [kworker/3:0H]
+root        42     2  0 10:29 ?        00:00:00 [khelper]
+root        43     2  0 10:29 ?        00:00:00 [kdevtmpfs]
+root        44     2  0 10:29 ?        00:00:00 [netns]
+root        45     2  0 10:29 ?        00:00:00 [writeback]
+root        46     2  0 10:29 ?        00:00:00 [kintegrityd]
+root        47     2  0 10:29 ?        00:00:00 [bioset]
+root        49     2  0 10:29 ?        00:00:00 [kblockd]
+root        50     2  0 10:29 ?        00:00:00 [ata_sff]
+root        51     2  0 10:29 ?        00:00:00 [khubd]
+root        52     2  0 10:29 ?        00:00:00 [md]
+root        53     2  0 10:29 ?        00:00:00 [devfreq_wq]
+root        54     2  0 10:29 ?        00:00:04 [kworker/1:1]
+root        56     2  0 10:29 ?        00:00:00 [khungtaskd]
+root        57     2  0 10:29 ?        00:00:00 [kswapd0]
+root        58     2  0 10:29 ?        00:00:00 [vmstat]
+root        59     2  0 10:29 ?        00:00:00 [ksmd]
+root        60     2  0 10:29 ?        00:00:00 [khugepaged]
+root        61     2  0 10:29 ?        00:00:00 [fsnotify_mark]
+root        62     2  0 10:29 ?        00:00:00 [ecryptfs-kthrea]
+root        63     2  0 10:29 ?        00:00:00 [crypto]
+root        75     2  0 10:29 ?        00:00:00 [kthrotld]
+root        97     2  0 10:29 ?        00:00:00 [deferwq]
+root        98     2  0 10:29 ?        00:00:00 [charger_manager]
+root       151     2  0 10:29 ?        00:00:00 [kpsmoused]
+root       152     2  0 10:29 ?        00:00:05 [kworker/3:2]
+root       153     2  0 10:29 ?        00:00:00 [scsi_eh_0]
+root       154     2  0 10:29 ?        00:00:00 [scsi_eh_1]
+root       155     2  0 10:29 ?        00:00:00 [scsi_eh_2]
+root       156     2  0 10:29 ?        00:00:00 [scsi_eh_3]
+root       176     2  0 10:29 ?        00:00:00 [jbd2/sda6-8]
+root       177     2  0 10:29 ?        00:00:00 [ext4-rsv-conver]
+root       315     1  0 10:29 ?        00:00:00 upstart-udev-bridge --daemon
+root       321     1  0 10:29 ?        00:00:00 /lib/systemd/systemd-udevd --daemon
+root       351     2  0 10:29 ?        00:00:00 [kworker/u17:1]
+root       402     2  0 10:29 ?        00:00:00 [kworker/u17:2]
+root       465     1  0 10:29 ?        00:00:00 upstart-socket-bridge --daemon
+root       550     2  0 10:29 ?        00:00:00 [cfg80211]
+root       571     2  0 10:29 ?        00:00:00 [scsi_eh_4]
+root       572     2  0 10:29 ?        00:00:00 [rts5139-control]
+root       573     2  0 10:29 ?        00:00:19 [rts5139-polling]
+root       577     2  0 10:29 ?        00:00:00 [kworker/1:2]
+root       613     2  0 10:29 ?        00:00:00 [kvm-irqfd-clean]
+message+   614     1  0 10:29 ?        00:00:03 dbus-daemon --system --fork
+root       693     1  0 10:29 ?        00:00:00 /usr/sbin/ModemManager
+root       696     1  0 10:29 ?        00:00:00 /usr/sbin/bluetoothd
+root       716     2  0 10:29 ?        00:00:00 [krfcommd]
+root       727     1  0 10:29 ?        00:00:00 upstart-file-bridge --daemon
+root       746     2  0 10:29 ?        00:00:00 [hd-audio1]
+root       750     2  0 10:29 ?        00:00:00 [hd-audio0]
+syslog     776     1  0 10:29 ?        00:00:00 rsyslogd
+root       787     1  0 10:29 ?        00:00:00 /lib/systemd/systemd-logind
+avahi      801     1  0 10:29 ?        00:00:00 avahi-daemon: running [Ashok.local]
+avahi      806   801  0 10:29 ?        00:00:00 avahi-daemon: chroot helper
+root       811     1  0 10:29 ?        00:00:03 NetworkManager
+root       817     1  0 10:29 ?        00:00:00 /usr/lib/policykit-1/polkitd --no-debug
+root       932     1  0 10:29 ?        00:00:01 /sbin/wpa_supplicant -B -P /run/sendsigs.omit.d/wpasupplicant.pid -u -s -O /var/run/wpa_supplica
+root       977     1  0 10:29 tty4     00:00:00 /sbin/getty -8 38400 tty4
+root       981     1  0 10:29 tty5     00:00:00 /sbin/getty -8 38400 tty5
+root       987     1  0 10:29 tty2     00:00:00 /sbin/getty -8 38400 tty2
+root       988     1  0 10:29 tty3     00:00:00 /sbin/getty -8 38400 tty3
+root       991     1  0 10:29 tty6     00:00:00 /sbin/getty -8 38400 tty6
+root      1054     1  0 10:29 ?        00:00:01 /usr/sbin/irqbalance
+root      1070     1  0 10:29 ?        00:00:00 /usr/sbin/cups-browsed
+root      1071     1  0 10:29 ?        00:00:00 cron
+kernoops  1085     1  0 10:29 ?        00:00:00 /usr/sbin/kerneloops
+root      1136     1  0 10:29 tty1     00:00:00 /sbin/getty -8 38400 tty1
+root      1141     1  0 10:29 ?        00:00:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+whoopsie  1144     1  0 10:29 ?        00:00:00 whoopsie
+root      1159     1  0 10:29 ?        00:00:00 lightdm
+root      1168     1  0 10:29 ?        00:00:00 /usr/lib/accountsservice/accounts-daemon
+root      1205  1159  0 10:29 tty7     00:01:54 /usr/bin/X -core :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch
+root      1213  1159  0 10:29 ?        00:00:00 lightdm --session-child 12 15
+root      1216     2  0 10:29 ?        00:00:00 [kauditd]
+ashok     1220  1213  0 10:29 ?        00:00:00 init --user
+ashok     1286  1220  0 10:29 ?        00:00:01 dbus-daemon --fork --session --address=unix:abstract=/tmp/dbus-ef2T2064Cn
+ashok     1297  1220  0 10:29 ?        00:00:00 upstart-event-bridge
+ashok     1305  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/hud/window-stack-bridge
+ashok     1307  1220  0 10:29 ?        00:00:00 gnome-keyring-daemon --start --components pkcs11,secrets
+ashok     1323  1220  0 10:29 ?        00:00:00 upstart-dbus-bridge --daemon --session --user --bus-name session
+ashok     1325  1220  0 10:29 ?        00:00:00 upstart-file-bridge --daemon --user
+ashok     1327  1220  0 10:29 ?        00:00:00 upstart-dbus-bridge --daemon --system --user --bus-name system
+ashok     1328  1220  0 10:29 ?        00:00:03 /usr/bin/ibus-daemon --daemonize --xim
+ashok     1337  1220  0 10:29 ?        00:00:00 /usr/lib/unity-settings-daemon/unity-settings-daemon
+ashok     1341  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/hud/hud-service
+ashok     1344  1220  0 10:29 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-bus-launcher --launch-immediately
+ashok     1345  1220  0 10:29 ?        00:00:00 gnome-session --session=ubuntu
+nobody    1349   811  0 10:29 ?        00:00:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/run/
+ashok     1352  1220  0 10:29 ?        00:00:05 /usr/lib/unity/unity-panel-service
+ashok     1353  1344  0 10:29 ?        00:00:00 /bin/dbus-daemon --config-file=/etc/at-spi2/accessibility.conf --nofork --print-address 3
+ashok     1394  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfsd
+ashok     1399  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+ashok     1407  1328  0 10:29 ?        00:00:00 /usr/lib/ibus/ibus-dconf
+ashok     1408  1328  0 10:29 ?        00:00:01 /usr/lib/ibus/ibus-ui-gtk3
+ashok     1410  1220  0 10:29 ?        00:00:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ashok     1424  1220  0 10:29 ?        00:00:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+ashok     1454  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/bamf/bamfdaemon
+root      1456     1  0 10:29 ?        00:00:00 /usr/lib/upower/upowerd
+ashok     1552  1220  0 10:29 ?        00:00:01 /usr/bin/pulseaudio --start --log-target=syslog
+rtkit     1554     1  0 10:29 ?        00:00:00 /usr/lib/rtkit/rtkit-daemon
+ashok     1567  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-keyboard-service --use-gtk
+ashok     1570  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-messages/indicator-messages-service
+ashok     1574  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-bluetooth/indicator-bluetooth-service
+ashok     1577  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-power/indicator-power-service
+ashok     1579  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-datetime/indicator-datetime-service
+ashok     1584  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-sound/indicator-sound-service
+ashok     1585  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-printers/indicator-printers-service
+ashok     1588  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-session/indicator-session-service
+ashok     1601  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+ashok     1622  1328  0 10:29 ?        00:00:00 /usr/lib/ibus/ibus-engine-simple
+ashok     1647  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/notify-osd
+ashok     1653  1345  0 10:29 ?        00:01:48 compiz
+colord    1769     1  0 10:29 ?        00:00:00 /usr/lib/colord/colord
+ashok     1771  1220  0 10:29 ?        00:00:00 /usr/lib/dconf/dconf-service
+ashok     1777  1220  0 10:29 ?        00:00:00 /usr/lib/evolution/evolution-source-registry
+ashok     1778  1337  0 10:29 ?        00:00:06 syndaemon -i 1.0 -t -K -R
+ashok     1827  1345  0 10:29 ?        00:00:04 nm-applet
+ashok     1829  1345  0 10:29 ?        00:00:00 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+ashok     1831  1345  0 10:29 ?        00:00:01 nautilus -n
+ashok     1834  1345  0 10:29 ?        00:00:00 /usr/lib/unity-settings-daemon/unity-fallback-mount-helper
+ashok     1849  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+root      1856     1  0 10:29 ?        00:00:01 /usr/lib/udisks2/udisksd --no-debug
+ashok     1865  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+ashok     1878  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+ashok     1883  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+ashok     1887  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+ashok     1893  1220  0 10:29 ?        00:00:00 /usr/lib/evolution/evolution-calendar-factory
+ashok     1901  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.8 /org/gtk/gvfs/exec_spaw/0
+ashok     1915  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfsd-metadata
+ashok     1922  1220  0 10:29 ?        00:00:00 /usr/lib/gvfs/gvfsd-burn --spawner :1.8 /org/gtk/gvfs/exec_spaw/1
+ashok     2094  1345  0 10:29 ?        00:00:00 telepathy-indicator
+ashok     2096  1220  0 10:29 ?        00:00:01 gnome-terminal
+ashok     2105  1220  0 10:29 ?        00:00:01 /usr/lib/telepathy/mission-control-5
+ashok     2115  2096  0 10:29 ?        00:00:00 gnome-pty-helper
+ashok     2116  2096  0 10:29 pts/1    00:00:00 bash
+ashok     2151  1345  0 10:29 ?        00:00:00 zeitgeist-datahub
+ashok     2156  1220  0 10:29 ?        00:00:00 /usr/bin/zeitgeist-daemon
+ashok     2162  1220  0 10:29 ?        00:00:00 /usr/lib/x86_64-linux-gnu/zeitgeist-fts
+ashok     2179  2162  0 10:29 ?        00:00:00 /bin/cat
+root      2191     1  0 10:29 ?        00:00:00 /usr/sbin/cupsd -f
+ashok     2202  1220  1 10:30 ?        00:04:19 chromium-browser --enable-pinch                          
+ashok     2215  2202  0 10:30 ?        00:00:00 chromium-browser --type=zygote                          
+ashok     2219  2215  0 10:30 ?        00:00:00 chromium-browser --type=zygote                          
+ashok     2291  2202  1 10:30 ?        00:02:29 chromium-browser --type=gpu-process --channel=2202.0.814015688 --window-depth=24 --supports-dual
+ashok     2328  2219  0 10:30 ?        00:01:07 /usr/lib/chromium-browser/chro                          
+ashok     2372  2291  0 10:30 ?        00:00:00 chromium-browser --type=gpu-broker                                                              
+ashok     2399  2219  0 10:30 ?        00:00:51 /usr/lib/chromium-browser/chro                          
+ashok     2447  1345  0 10:30 ?        00:00:00 update-notifier
+root      2479     2  0 10:30 ?        00:00:05 [kworker/2:2]
+ashok     2613  1345  0 10:31 ?        00:00:00 /usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
+root      3364     2  0 12:03 ?        00:00:00 [kworker/3:1]
+ashok     3371  2219  0 12:09 ?        00:00:06 /usr/lib/chromium-browser/chro                          
+root      3382     2  0 12:09 ?        00:00:00 [kworker/0:2]
+ashok     3391  2219  0 12:09 ?        00:00:21 /usr/lib/chromium-browser/chro                          
+ashok     3406  2219  5 12:10 ?        00:08:25 /usr/lib/chromium-browser/chro                          
+ashok     3455  2116  0 12:24 pts/1    00:00:00 script
+ashok     3456  3455  0 12:24 pts/1    00:00:00 script
+ashok     3457  3456  0 12:24 pts/0    00:00:00 bash -i
+root      3633     2  0 13:19 ?        00:00:00 [kworker/2:1]
+root      3915     2  0 13:27 ?        00:00:00 [kworker/1:1H]
+root      3916     2  0 13:27 ?        00:00:00 [kworker/2:1H]
+root      3917     2  0 13:27 ?        00:00:00 [kworker/3:1H]
+root      3918     2  0 14:20 ?        00:00:00 [kworker/0:3]
+root      3919     2  0 14:20 ?        00:00:00 [irq/63-mei_me]
+root      3945     2  0 14:20 ?        00:00:00 [kworker/u16:37]
+root      3946     2  0 14:20 ?        00:00:01 [kworker/u16:38]
+root      3989     2  0 14:20 ?        00:00:00 [hci0]
+root      3990     2  0 14:20 ?        00:00:00 [hci0]
+root      4190   811  0 14:20 ?        00:00:00 /sbin/dhclient -d -sf /usr/lib/NetworkManager/nm-dhcp-client.action -pf /run/sendsigs.omit.d/net
+root      4305     2  0 14:26 ?        00:00:00 [kworker/u16:0]
+root      4322     2  0 14:34 ?        00:00:00 [kworker/u16:1]
+root      4323     2  0 14:35 ?        00:00:00 [kworker/2:0]
+ashok     4330  3457  0 14:39 pts/0    00:00:00 ps -eaf
+]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ ls[K[K[K]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ [H[2J]0;ashok@Ashok: ~/KM_GIT/ldd/LDD_CDD_02_Basicsashok@Ashok:~/KM_GIT/ldd/LDD_CDD_02_Basics$ cd 
+]0;ashok@Ashok: ~ashok@Ashok:~$ cd Downloads/
+]0;ashok@Ashok: ~/Downloadsashok@Ashok:~/Downloads$ ls
+Details Form.doc  JEE Main Adv Guide  [0m[00;36mtone-meghaalu-lekunna-17591.mp3[0m  Unconfirmed 282846.crdownload
+]0;ashok@Ashok: ~/Downloadsashok@Ashok:~/Downloads$ git clone git@https://github.com/liuliu/ccv.git 
+Cloning into 'ccv'...
+fatal: I don't handle protocol 'git@https'
+]0;ashok@Ashok: ~/Downloadsashok@Ashok:~/Downloads$ git clone git@https://github.com/liuliu/ccv.git [C[1P[1P[1P[1P
+Cloning into 'ccv'...
+remote: Counting objects: 8970, done.[K
+Receiving objects:   0% (1/8970)   Receiving objects:   1% (90/8970)   Receiving objects:   2% (180/8970), 28.01 KiB | 46.00 KiB/s   Receiving objects:   3% (270/8970), 28.01 KiB | 46.00 KiB/s   Receiving objects:   3% (346/8970), 60.01 KiB | 54.00 KiB/s   Receiving objects:   4% (359/8970), 60.01 KiB | 54.00 KiB/s   Receiving objects:   5% (449/8970), 60.01 KiB | 54.00 KiB/s   Receiving objects:   6% (539/8970), 60.01 KiB | 54.00 KiB/s   Receiving objects:   7% (628/8970), 100.01 KiB | 60.00 KiB/s   Receiving objects:   8% (718/8970), 100.01 KiB | 60.00 KiB/s   Receiving objects:   8% (807/8970), 140.01 KiB | 64.00 KiB/s   Receiving objects:   9% (808/8970), 140.01 KiB | 64.00 KiB/s   Receiving objects:  10% (897/8970), 140.01 KiB | 64.00 KiB/s   Receiving objects:  11% (987/8970), 140.01 KiB | 64.00 KiB/s   Receiving objects:  12% (1077/8970), 188.01 KiB | 70.00 KiB/s   Receiving objects:  12% (1157/8970), 228.01 KiB | 62.00 KiB/s   Receiving objects:  13% (1167/8970), 228.01 KiB | 62.00 KiB/s   Receiving objects:  13% (1246/8970), 276.01 KiB | 65.00 KiB/s   Receiving objects:  14% (1256/8970), 276.01 KiB | 65.00 KiB/s   Receiving objects:  14% (1292/8970), 356.01 KiB | 67.00 KiB/s   Receiving objects:  14% (1314/8970), 372.01 KiB | 64.00 KiB/s   Receiving objects:  14% (1342/8970), 468.01 KiB | 61.00 KiB/s   Receiving objects:  14% (1342/8970), 540.01 KiB | 64.00 KiB/s   Receiving objects:  14% (1342/8970), 620.01 KiB | 61.00 KiB/s   Receiving objects:  14% (1342/8970), 660.01 KiB | 59.00 KiB/s   Receiving objects:  14% (1342/8970), 700.01 KiB | 61.00 KiB/s   Receiving objects:  14% (1342/8970), 796.01 KiB | 68.00 KiB/s   Receiving objects:  14% (1342/8970), 908.01 KiB | 76.00 KiB/s   Receiving objects:  14% (1342/8970), 1.04 MiB | 92.00 KiB/s   Receiving objects:  14% (1342/8970), 1.27 MiB | 138.00 KiB/s   Receiving objects:  14% (1342/8970), 1.64 MiB | 201.00 KiB/s   Receiving objects:  15% (1346/8970), 1.64 MiB | 201.00 KiB/s   Receiving objects:  15% (1346/8970), 1.80 MiB | 210.00 KiB/s   Receiving objects:  16% (1436/8970), 1.80 MiB | 210.00 KiB/s   Receiving objects:  16% (1495/8970), 2.10 MiB | 259.00 KiB/s   Receiving objects:  17% (1525/8970), 2.10 MiB | 259.00 KiB/s   Receiving objects:  17% (1557/8970), 2.45 MiB | 285.00 KiB/s   Receiving objects:  17% (1557/8970), 2.69 MiB | 288.00 KiB/s   Receiving objects:  17% (1557/8970), 2.70 MiB | 237.00 KiB/s   Receiving objects:  17% (1557/8970), 2.88 MiB | 162.00 KiB/s   Receiving objects:  17% (1558/8970), 3.10 MiB | 131.00 KiB/s   Receiving objects:  17% (1558/8970), 3.36 MiB | 138.00 KiB/s   Receiving objects:  17% (1565/8970), 3.66 MiB | 131.00 KiB/s   Receiving objects:  17% (1565/8970), 3.73 MiB | 147.00 KiB/s   Receiving objects:  17% (1565/8970), 4.00 MiB | 193.00 KiB/s   Receiving objects:  17% (1565/8970), 4.06 MiB | 135.00 KiB/s   Receiving objects:  17% (1565/8970), 4.22 MiB | 141.00 KiB/s   Receiving objects:  17% (1565/8970), 4.52 MiB | 145.00 KiB/s   Receiving objects:  17% (1565/8970), 4.83 MiB | 152.00 KiB/s   Receiving objects:  17% (1565/8970), 4.89 MiB | 150.00 KiB/s   Receiving objects:  17% (1565/8970), 5.07 MiB | 146.00 KiB/s   Receiving objects:  17% (1565/8970), 5.22 MiB | 155.00 KiB/s   Receiving objects:  17% (1565/8970), 5.39 MiB | 202.00 KiB/s   Receiving objects:  17% (1565/8970), 5.56 MiB | 174.00 KiB/s   Receiving objects:  17% (1565/8970), 5.62 MiB | 144.00 KiB/s   Receiving objects:  17% (1565/8970), 5.68 MiB | 96.00 KiB/s   Receiving objects:  17% (1565/8970), 5.79 MiB | 89.00 KiB/s   Receiving objects:  17% (1565/8970), 5.99 MiB | 93.00 KiB/s   Receiving objects:  17% (1565/8970), 6.23 MiB | 95.00 KiB/s   Receiving objects:  17% (1565/8970), 6.43 MiB | 102.00 KiB/s   Receiving objects:  17% (1565/8970), 6.50 MiB | 100.00 KiB/s   Receiving objects:  17% (1565/8970), 6.66 MiB | 148.00 KiB/s   Receiving objects:  17% (1565/8970), 6.75 MiB | 129.00 KiB/s   Receiving objects:  17% (1565/8970), 6.81 MiB | 116.00 KiB/s   Receiving objects:  17% (1565/8970), 6.97 MiB | 103.00 KiB/s   Receiving objects:  17% (1565/8970), 7.12 MiB | 131.00 KiB/s   Receiving objects:  17% (1565/8970), 7.32 MiB | 137.00 KiB/s   Receiving objects:  17% (1565/8970), 7.54 MiB | 167.00 KiB/s   Receiving objects:  17% (1565/8970), 7.61 MiB | 159.00 KiB/s   Receiving objects:  17% (1565/8970), 7.68 MiB | 137.00 KiB/s   Receiving objects:  17% (1565/8970), 7.86 MiB | 133.00 KiB/s   Receiving objects:  17% (1565/8970), 8.02 MiB | 144.00 KiB/s   Receiving objects:  17% (1565/8970), 8.37 MiB | 172.00 KiB/s   Receiving objects:  17% (1565/8970), 8.75 MiB | 224.00 KiB/s   Receiving objects:  17% (1565/8970), 8.82 MiB | 229.00 KiB/s   Receiving objects:  17% (1565/8970), 9.18 MiB | 272.00 KiB/s   Receiving objects:  17% (1565/8970), 9.51 MiB | 316.00 KiB/s   Receiving objects:  17% (1565/8970), 9.70 MiB | 227.00 KiB/s   Receiving objects:  17% (1565/8970), 9.76 MiB | 128.00 KiB/s   Receiving objects:  17% (1565/8970), 9.96 MiB | 120.00 KiB/s   Receiving objects:  17% (1565/8970), 10.16 MiB | 103.00 KiB/s   Receiving objects:  17% (1565/8970), 10.29 MiB | 101.00 KiB/s   Receiving objects:  17% (1565/8970), 10.39 MiB | 102.00 KiB/s   Receiving objects:  17% (1565/8970), 10.54 MiB | 101.00 KiB/s   Receiving objects:  17% (1565/8970), 10.61 MiB | 81.00 KiB/s   Receiving objects:  17% (1565/8970), 10.72 MiB | 76.00 KiB/s   Receiving objects:  17% (1565/8970), 10.79 MiB | 71.00 KiB/s   Receiving objects:  17% (1565/8970), 10.86 MiB | 48.00 KiB/s   Receiving objects:  17% (1565/8970), 10.94 MiB | 41.00 KiB/s   Receiving objects:  17% (1565/8970), 11.12 MiB | 47.00 KiB/s   Receiving objects:  17% (1565/8970), 11.29 MiB | 47.00 KiB/s   Receiving objects:  17% (1565/8970), 11.35 MiB | 63.00 KiB/s   Receiving objects:  17% (1565/8970), 11.56 MiB | 71.00 KiB/s   Receiving objects:  17% (1565/8970), 11.77 MiB | 158.00 KiB/s   Receiving objects:  17% (1565/8970), 11.96 MiB | 142.00 KiB/s   Receiving objects:  17% (1565/8970), 12.01 MiB | 108.00 KiB/s   Receiving objects:  17% (1565/8970), 12.08 MiB | 107.00 KiB/s   Receiving objects:  17% (1565/8970), 12.14 MiB | 88.00 KiB/s   Receiving objects:  17% (1565/8970), 12.18 MiB | 60.00 KiB/s   Receiving objects:  17% (1565/8970), 12.20 MiB | 51.00 KiB/s   Receiving objects:  17% (1565/8970), 12.23 MiB | 43.00 KiB/s   Receiving objects:  17% (1565/8970), 12.25 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 12.27 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 12.31 MiB | 25.00 KiB/s   Receiving objects:  17% (1565/8970), 12.35 MiB | 24.00 KiB/s   Receiving objects:  17% (1565/8970), 12.40 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 12.47 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 12.54 MiB | 53.00 KiB/s   Receiving objects:  17% (1565/8970), 12.60 MiB | 58.00 KiB/s   Receiving objects:  17% (1565/8970), 12.61 MiB | 53.00 KiB/s   Receiving objects:  17% (1565/8970), 12.79 MiB | 83.00 KiB/s   Receiving objects:  17% (1565/8970), 13.11 MiB | 135.00 KiB/s   Receiving objects:  17% (1565/8970), 13.57 MiB | 206.00 KiB/s   Receiving objects:  17% (1565/8970), 13.95 MiB | 274.00 KiB/s   Receiving objects:  17% (1565/8970), 14.13 MiB | 312.00 KiB/s   Receiving objects:  17% (1565/8970), 14.41 MiB | 315.00 KiB/s   Receiving objects:  17% (1565/8970), 14.61 MiB | 288.00 KiB/s   Receiving objects:  17% (1565/8970), 14.82 MiB | 251.00 KiB/s   Receiving objects:  17% (1565/8970), 14.88 MiB | 210.00 KiB/s   Receiving objects:  17% (1565/8970), 14.96 MiB | 181.00 KiB/s   Receiving objects:  17% (1565/8970), 15.07 MiB | 138.00 KiB/s   Receiving objects:  17% (1565/8970), 15.17 MiB | 113.00 KiB/s   Receiving objects:  17% (1565/8970), 15.29 MiB | 103.00 KiB/s   Receiving objects:  17% (1565/8970), 15.32 MiB | 87.00 KiB/s   Receiving objects:  17% (1565/8970), 15.39 MiB | 76.00 KiB/s   Receiving objects:  17% (1565/8970), 15.44 MiB | 71.00 KiB/s   Receiving objects:  17% (1565/8970), 15.50 MiB | 74.00 KiB/s   Receiving objects:  17% (1565/8970), 15.60 MiB | 74.00 KiB/s   Receiving objects:  17% (1565/8970), 15.70 MiB | 71.00 KiB/s   Receiving objects:  17% (1565/8970), 15.88 MiB | 94.00 KiB/s   Receiving objects:  17% (1565/8970), 16.12 MiB | 146.00 KiB/s   Receiving objects:  17% (1565/8970), 16.39 MiB | 180.00 KiB/s   Receiving objects:  17% (1565/8970), 16.68 MiB | 222.00 KiB/s   Receiving objects:  17% (1565/8970), 16.86 MiB | 254.00 KiB/s   Receiving objects:  17% (1565/8970), 17.07 MiB | 207.00 KiB/s   Receiving objects:  17% (1565/8970), 17.23 MiB | 205.00 KiB/s   Receiving objects:  17% (1565/8970), 17.41 MiB | 186.00 KiB/s   Receiving objects:  17% (1565/8970), 17.47 MiB | 146.00 KiB/s   Receiving objects:  17% (1565/8970), 17.54 MiB | 131.00 KiB/s   Receiving objects:  17% (1565/8970), 17.56 MiB | 101.00 KiB/s   Receiving objects:  17% (1565/8970), 17.57 MiB | 60.00 KiB/s   Receiving objects:  17% (1565/8970), 17.59 MiB | 68.00 KiB/s   Receiving objects:  17% (1565/8970), 17.64 MiB | 45.00 KiB/s   Receiving objects:  17% (1565/8970), 17.71 MiB | 36.00 KiB/s   Receiving objects:  17% (1565/8970), 17.78 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 17.85 MiB | 57.00 KiB/s   Receiving objects:  17% (1565/8970), 17.96 MiB | 70.00 KiB/s   Receiving objects:  17% (1565/8970), 18.11 MiB | 92.00 KiB/s   Receiving objects:  17% (1565/8970), 18.18 MiB | 89.00 KiB/s   Receiving objects:  17% (1565/8970), 18.24 MiB | 95.00 KiB/s   Receiving objects:  17% (1565/8970), 18.50 MiB | 133.00 KiB/s   Receiving objects:  17% (1565/8970), 18.74 MiB | 164.00 KiB/s   Receiving objects:  17% (1565/8970), 18.99 MiB | 187.00 KiB/s   Receiving objects:  17% (1565/8970), 19.25 MiB | 236.00 KiB/s   Receiving objects:  17% (1565/8970), 19.49 MiB | 214.00 KiB/s   Receiving objects:  17% (1565/8970), 19.55 MiB | 206.00 KiB/s   Receiving objects:  17% (1565/8970), 19.84 MiB | 215.00 KiB/s   Receiving objects:  17% (1565/8970), 20.12 MiB | 222.00 KiB/s   Receiving objects:  17% (1565/8970), 20.41 MiB | 227.00 KiB/s   Receiving objects:  17% (1565/8970), 20.71 MiB | 270.00 KiB/s   Receiving objects:  17% (1565/8970), 21.00 MiB | 283.00 KiB/s   Receiving objects:  17% (1565/8970), 21.14 MiB | 288.00 KiB/s   Receiving objects:  17% (1565/8970), 21.48 MiB | 300.00 KiB/s   Receiving objects:  17% (1565/8970), 21.76 MiB | 269.00 KiB/s   Receiving objects:  17% (1565/8970), 21.88 MiB | 254.00 KiB/s   Receiving objects:  17% (1565/8970), 22.03 MiB | 211.00 KiB/s   Receiving objects:  17% (1565/8970), 22.07 MiB | 182.00 KiB/s   Receiving objects:  17% (1565/8970), 22.09 MiB | 153.00 KiB/s   Receiving objects:  17% (1565/8970), 22.15 MiB | 129.00 KiB/s   Receiving objects:  17% (1565/8970), 22.25 MiB | 104.00 KiB/s   Receiving objects:  17% (1565/8970), 22.29 MiB | 70.00 KiB/s   Receiving objects:  17% (1565/8970), 22.33 MiB | 47.00 KiB/s   Receiving objects:  17% (1565/8970), 22.41 MiB | 51.00 KiB/s   Receiving objects:  17% (1565/8970), 22.50 MiB | 56.00 KiB/s   Receiving objects:  17% (1565/8970), 22.62 MiB | 61.00 KiB/s   Receiving objects:  17% (1565/8970), 22.71 MiB | 90.00 KiB/s   Receiving objects:  17% (1565/8970), 22.83 MiB | 103.00 KiB/s   Receiving objects:  17% (1565/8970), 23.00 MiB | 118.00 KiB/s   Receiving objects:  17% (1565/8970), 23.10 MiB | 123.00 KiB/s   Receiving objects:  17% (1565/8970), 23.25 MiB | 128.00 KiB/s   Receiving objects:  17% (1565/8970), 23.31 MiB | 122.00 KiB/s   Receiving objects:  17% (1565/8970), 23.45 MiB | 127.00 KiB/s   Receiving objects:  17% (1565/8970), 23.59 MiB | 122.00 KiB/s   Receiving objects:  17% (1565/8970), 23.75 MiB | 135.00 KiB/s   Receiving objects:  17% (1565/8970), 23.93 MiB | 140.00 KiB/s   Receiving objects:  17% (1565/8970), 24.07 MiB | 141.00 KiB/s   Receiving objects:  17% (1565/8970), 24.19 MiB | 148.00 KiB/s   Receiving objects:  17% (1565/8970), 24.29 MiB | 136.00 KiB/s   Receiving objects:  17% (1565/8970), 24.32 MiB | 128.00 KiB/s   Receiving objects:  17% (1565/8970), 24.38 MiB | 85.00 KiB/s   Receiving objects:  17% (1565/8970), 24.42 MiB | 74.00 KiB/s   Receiving objects:  17% (1565/8970), 24.46 MiB | 63.00 KiB/s   Receiving objects:  17% (1565/8970), 24.47 MiB | 49.00 KiB/s   Receiving objects:  17% (1565/8970), 24.53 MiB | 42.00 KiB/s   Receiving objects:  17% (1565/8970), 24.59 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 24.64 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 24.65 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 24.69 MiB | 32.00 KiB/s   Receiving objects:  17% (1565/8970), 24.71 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 24.71 MiB | 24.00 KiB/s   Receiving objects:  17% (1565/8970), 24.73 MiB | 24.00 KiB/s   Receiving objects:  17% (1565/8970), 24.74 MiB | 18.00 KiB/s   Receiving objects:  17% (1565/8970), 24.75 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 24.76 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 24.78 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 24.80 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 24.81 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 24.82 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 24.85 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 24.88 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 24.89 MiB | 16.00 KiB/s   Receiving objects:  17% (1565/8970), 24.91 MiB | 18.00 KiB/s   Receiving objects:  17% (1565/8970), 24.93 MiB | 14.00 KiB/s   Receiving objects:  17% (1565/8970), 24.94 MiB | 13.00 KiB/s   Receiving objects:  17% (1565/8970), 24.95 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 24.97 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 24.99 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 25.00 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.01 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 25.02 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.04 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.05 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 25.07 MiB | 5.00 KiB/s   Receiving objects:  17% (1565/8970), 25.09 MiB | 5.00 KiB/s   Receiving objects:  17% (1565/8970), 25.10 MiB | 5.00 KiB/s   Receiving objects:  17% (1565/8970), 25.11 MiB | 5.00 KiB/s   Receiving objects:  17% (1565/8970), 25.13 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 25.14 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.17 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.18 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.20 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.21 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.21 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.22 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.23 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 25.25 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 25.26 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 25.27 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 25.32 MiB | 15.00 KiB/s   Receiving objects:  17% (1565/8970), 25.34 MiB | 18.00 KiB/s   Receiving objects:  17% (1565/8970), 25.37 MiB | 20.00 KiB/s   Receiving objects:  17% (1565/8970), 25.39 MiB | 19.00 KiB/s   Receiving objects:  17% (1565/8970), 25.40 MiB | 17.00 KiB/s   Receiving objects:  17% (1565/8970), 25.41 MiB | 15.00 KiB/s   Receiving objects:  17% (1565/8970), 25.43 MiB | 17.00 KiB/s   Receiving objects:  17% (1565/8970), 25.44 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 25.45 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 25.46 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.48 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.50 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.51 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.54 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.57 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.59 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 25.61 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 25.61 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 25.63 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 25.64 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 25.65 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 25.66 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.68 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.69 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 25.71 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 25.74 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 25.75 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 25.77 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 25.79 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 25.81 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 25.83 MiB | 14.00 KiB/s   Receiving objects:  17% (1565/8970), 25.86 MiB | 16.00 KiB/s   Receiving objects:  17% (1565/8970), 25.89 MiB | 20.00 KiB/s   Receiving objects:  17% (1565/8970), 25.93 MiB | 23.00 KiB/s   Receiving objects:  17% (1565/8970), 25.98 MiB | 35.00 KiB/s   Receiving objects:  17% (1565/8970), 26.07 MiB | 49.00 KiB/s   Receiving objects:  17% (1565/8970), 26.24 MiB | 79.00 KiB/s   Receiving objects:  17% (1565/8970), 26.54 MiB | 96.00 KiB/s   Receiving objects:  17% (1565/8970), 26.61 MiB | 103.00 KiB/s   Receiving objects:  17% (1565/8970), 26.97 MiB | 151.00 KiB/s   Receiving objects:  17% (1565/8970), 27.30 MiB | 184.00 KiB/s   Receiving objects:  17% (1565/8970), 27.42 MiB | 176.00 KiB/s   Receiving objects:  17% (1565/8970), 27.68 MiB | 244.00 KiB/s   Receiving objects:  17% (1565/8970), 28.04 MiB | 258.00 KiB/s   Receiving objects:  17% (1565/8970), 28.26 MiB | 233.00 KiB/s   Receiving objects:  17% (1565/8970), 28.46 MiB | 244.00 KiB/s   Receiving objects:  17% (1565/8970), 28.71 MiB | 273.00 KiB/s   Receiving objects:  17% (1565/8970), 28.93 MiB | 266.00 KiB/s   Receiving objects:  17% (1565/8970), 29.18 MiB | 247.00 KiB/s   Receiving objects:  17% (1565/8970), 29.39 MiB | 244.00 KiB/s   Receiving objects:  17% (1565/8970), 29.62 MiB | 239.00 KiB/s   Receiving objects:  17% (1565/8970), 29.84 MiB | 222.00 KiB/s   Receiving objects:  17% (1565/8970), 30.07 MiB | 220.00 KiB/s   Receiving objects:  17% (1565/8970), 30.34 MiB | 226.00 KiB/s   Receiving objects:  17% (1565/8970), 30.60 MiB | 237.00 KiB/s   Receiving objects:  17% (1565/8970), 30.86 MiB | 252.00 KiB/s   Receiving objects:  17% (1565/8970), 31.14 MiB | 266.00 KiB/s   Receiving objects:  17% (1565/8970), 31.43 MiB | 270.00 KiB/s   Receiving objects:  17% (1565/8970), 31.57 MiB | 273.00 KiB/s   Receiving objects:  17% (1565/8970), 31.85 MiB | 273.00 KiB/s   Receiving objects:  17% (1565/8970), 32.16 MiB | 281.00 KiB/s   Receiving objects:  17% (1565/8970), 32.24 MiB | 155.00 KiB/s   Receiving objects:  17% (1565/8970), 32.25 MiB | 136.00 KiB/s   Receiving objects:  17% (1565/8970), 32.44 MiB | 123.00 KiB/s   Receiving objects:  17% (1565/8970), 32.75 MiB | 129.00 KiB/s   Receiving objects:  17% (1565/8970), 33.11 MiB | 136.00 KiB/s   Receiving objects:  17% (1565/8970), 33.17 MiB | 121.00 KiB/s   Receiving objects:  17% (1565/8970), 33.48 MiB | 206.00 KiB/s   Receiving objects:  17% (1565/8970), 33.84 MiB | 235.00 KiB/s   Receiving objects:  17% (1565/8970), 34.19 MiB | 242.00 KiB/s   Receiving objects:  17% (1565/8970), 34.41 MiB | 204.00 KiB/s   Receiving objects:  17% (1565/8970), 34.49 MiB | 268.00 KiB/s   Receiving objects:  17% (1565/8970), 34.89 MiB | 286.00 KiB/s   Receiving objects:  17% (1565/8970), 35.28 MiB | 288.00 KiB/s   Receiving objects:  17% (1565/8970), 35.44 MiB | 272.00 KiB/s   Receiving objects:  17% (1565/8970), 35.86 MiB | 288.00 KiB/s   Receiving objects:  17% (1565/8970), 36.11 MiB | 330.00 KiB/s   Receiving objects:  17% (1565/8970), 36.43 MiB | 298.00 KiB/s   Receiving objects:  17% (1565/8970), 36.58 MiB | 276.00 KiB/s   Receiving objects:  17% (1565/8970), 36.79 MiB | 262.00 KiB/s   Receiving objects:  17% (1565/8970), 36.86 MiB | 203.00 KiB/s   Receiving objects:  17% (1565/8970), 36.95 MiB | 190.00 KiB/s   Receiving objects:  17% (1565/8970), 37.13 MiB | 180.00 KiB/s   Receiving objects:  17% (1565/8970), 37.31 MiB | 163.00 KiB/s   Receiving objects:  17% (1565/8970), 37.33 MiB | 133.00 KiB/s   Receiving objects:  17% (1565/8970), 37.61 MiB | 143.00 KiB/s   Receiving objects:  17% (1565/8970), 37.68 MiB | 117.00 KiB/s   Receiving objects:  17% (1565/8970), 37.71 MiB | 102.00 KiB/s   Receiving objects:  17% (1565/8970), 37.79 MiB | 92.00 KiB/s   Receiving objects:  17% (1565/8970), 37.81 MiB | 72.00 KiB/s   Receiving objects:  17% (1565/8970), 37.83 MiB | 58.00 KiB/s   Receiving objects:  17% (1565/8970), 37.86 MiB | 59.00 KiB/s   Receiving objects:  17% (1565/8970), 38.04 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 38.07 MiB | 36.00 KiB/s   Receiving objects:  17% (1565/8970), 38.09 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 38.11 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 38.13 MiB | 28.00 KiB/s   Receiving objects:  17% (1565/8970), 38.14 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 38.17 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 38.18 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 38.19 MiB | 19.00 KiB/s   Receiving objects:  17% (1565/8970), 38.20 MiB | 13.00 KiB/s   Receiving objects:  17% (1565/8970), 38.21 MiB | 13.00 KiB/s   Receiving objects:  17% (1565/8970), 38.22 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 38.23 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 38.25 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 38.26 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 38.29 MiB | 16.00 KiB/s   Receiving objects:  17% (1565/8970), 38.32 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 38.34 MiB | 14.00 KiB/s   Receiving objects:  17% (1565/8970), 38.36 MiB | 16.00 KiB/s   Receiving objects:  17% (1565/8970), 38.38 MiB | 17.00 KiB/s   Receiving objects:  17% (1565/8970), 38.43 MiB | 19.00 KiB/s   Receiving objects:  17% (1565/8970), 38.44 MiB | 20.00 KiB/s   Receiving objects:  17% (1565/8970), 38.48 MiB | 20.00 KiB/s   Receiving objects:  17% (1565/8970), 38.54 MiB | 26.00 KiB/s   Receiving objects:  17% (1565/8970), 38.54 MiB | 21.00 KiB/s   Receiving objects:  17% (1565/8970), 38.55 MiB | 21.00 KiB/s   Receiving objects:  17% (1565/8970), 38.57 MiB | 19.00 KiB/s   Receiving objects:  17% (1565/8970), 38.58 MiB | 17.00 KiB/s   Receiving objects:  17% (1565/8970), 38.60 MiB | 17.00 KiB/s   Receiving objects:  17% (1565/8970), 38.61 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 38.63 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 38.64 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 38.67 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 38.68 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 38.71 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 38.74 MiB | 11.00 KiB/s   Receiving objects:  17% (1565/8970), 38.78 MiB | 26.00 KiB/s   Receiving objects:  17% (1565/8970), 38.84 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 38.89 MiB | 43.00 KiB/s   Receiving objects:  17% (1565/8970), 39.04 MiB | 63.00 KiB/s   Receiving objects:  17% (1565/8970), 39.08 MiB | 63.00 KiB/s   Receiving objects:  17% (1565/8970), 39.25 MiB | 90.00 KiB/s   Receiving objects:  17% (1565/8970), 39.29 MiB | 90.00 KiB/s   Receiving objects:  17% (1565/8970), 39.37 MiB | 92.00 KiB/s   Receiving objects:  17% (1565/8970), 39.45 MiB | 81.00 KiB/s   Receiving objects:  17% (1565/8970), 39.47 MiB | 66.00 KiB/s   Receiving objects:  17% (1565/8970), 39.53 MiB | 69.00 KiB/s   Receiving objects:  17% (1565/8970), 39.55 MiB | 45.00 KiB/s   Receiving objects:  17% (1565/8970), 39.60 MiB | 38.00 KiB/s   Receiving objects:  17% (1565/8970), 39.63 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 39.69 MiB | 38.00 KiB/s   Receiving objects:  17% (1565/8970), 39.80 MiB | 53.00 KiB/s   Receiving objects:  17% (1565/8970), 39.90 MiB | 63.00 KiB/s   Receiving objects:  17% (1565/8970), 39.98 MiB | 73.00 KiB/s   Receiving objects:  17% (1565/8970), 40.11 MiB | 93.00 KiB/s   Receiving objects:  17% (1565/8970), 40.27 MiB | 120.00 KiB/s   Receiving objects:  17% (1565/8970), 40.30 MiB | 113.00 KiB/s   Receiving objects:  17% (1565/8970), 40.33 MiB | 57.00 KiB/s   Receiving objects:  17% (1565/8970), 40.35 MiB | 53.00 KiB/s   Receiving objects:  17% (1565/8970), 40.39 MiB | 53.00 KiB/s   Receiving objects:  17% (1565/8970), 40.47 MiB | 47.00 KiB/s   Receiving objects:  17% (1565/8970), 40.57 MiB | 39.00 KiB/s   Receiving objects:  17% (1565/8970), 40.63 MiB | 37.00 KiB/s   Receiving objects:  17% (1565/8970), 40.80 MiB | 71.00 KiB/s   Receiving objects:  17% (1565/8970), 40.86 MiB | 80.00 KiB/s   Receiving objects:  17% (1565/8970), 41.06 MiB | 97.00 KiB/s   Receiving objects:  17% (1565/8970), 41.22 MiB | 108.00 KiB/s   Receiving objects:  17% (1565/8970), 41.32 MiB | 108.00 KiB/s   Receiving objects:  17% (1565/8970), 41.41 MiB | 109.00 KiB/s   Receiving objects:  17% (1565/8970), 41.50 MiB | 115.00 KiB/s   Receiving objects:  17% (1565/8970), 41.55 MiB | 106.00 KiB/s   Receiving objects:  17% (1565/8970), 41.68 MiB | 75.00 KiB/s   Receiving objects:  17% (1565/8970), 41.70 MiB | 47.00 KiB/s   Receiving objects:  17% (1565/8970), 41.72 MiB | 42.00 KiB/s   Receiving objects:  17% (1565/8970), 41.81 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 41.89 MiB | 42.00 KiB/s   Receiving objects:  17% (1565/8970), 41.98 MiB | 39.00 KiB/s   Receiving objects:  17% (1565/8970), 42.02 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 42.07 MiB | 57.00 KiB/s   Receiving objects:  17% (1565/8970), 42.13 MiB | 56.00 KiB/s   Receiving objects:  17% (1565/8970), 42.26 MiB | 48.00 KiB/s   Receiving objects:  17% (1565/8970), 42.31 MiB | 45.00 KiB/s   Receiving objects:  17% (1565/8970), 42.36 MiB | 47.00 KiB/s   Receiving objects:  17% (1565/8970), 42.40 MiB | 44.00 KiB/s   Receiving objects:  17% (1565/8970), 42.54 MiB | 53.00 KiB/s   Receiving objects:  17% (1565/8970), 42.61 MiB | 59.00 KiB/s   Receiving objects:  17% (1565/8970), 42.67 MiB | 59.00 KiB/s   Receiving objects:  17% (1565/8970), 42.75 MiB | 72.00 KiB/s   Receiving objects:  17% (1565/8970), 42.76 MiB | 52.00 KiB/s   Receiving objects:  17% (1565/8970), 42.79 MiB | 49.00 KiB/s   Receiving objects:  17% (1565/8970), 42.84 MiB | 38.00 KiB/s   Receiving objects:  17% (1565/8970), 42.89 MiB | 36.00 KiB/s   Receiving objects:  17% (1565/8970), 42.93 MiB | 26.00 KiB/s   Receiving objects:  17% (1565/8970), 43.00 MiB | 43.00 KiB/s   Receiving objects:  17% (1565/8970), 43.04 MiB | 47.00 KiB/s   Receiving objects:  17% (1565/8970), 43.17 MiB | 64.00 KiB/s   Receiving objects:  17% (1565/8970), 43.23 MiB | 68.00 KiB/s   Receiving objects:  17% (1565/8970), 43.25 MiB | 60.00 KiB/s   Receiving objects:  17% (1565/8970), 43.29 MiB | 62.00 KiB/s   Receiving objects:  17% (1565/8970), 43.39 MiB | 62.00 KiB/s   Receiving objects:  17% (1565/8970), 43.46 MiB | 54.00 KiB/s   Receiving objects:  17% (1565/8970), 43.51 MiB | 53.00 KiB/s   Receiving objects:  17% (1565/8970), 43.58 MiB | 49.00 KiB/s   Receiving objects:  17% (1565/8970), 43.61 MiB | 55.00 KiB/s   Receiving objects:  17% (1565/8970), 43.63 MiB | 51.00 KiB/s   Receiving objects:  17% (1565/8970), 43.66 MiB | 43.00 KiB/s   Receiving objects:  17% (1565/8970), 43.68 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 43.69 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 43.74 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 43.76 MiB | 31.00 KiB/s   Receiving objects:  17% (1565/8970), 43.80 MiB | 28.00 KiB/s   Receiving objects:  17% (1565/8970), 43.85 MiB | 30.00 KiB/s   Receiving objects:  17% (1565/8970), 43.87 MiB | 32.00 KiB/s   Receiving objects:  17% (1565/8970), 43.93 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 44.00 MiB | 51.00 KiB/s   Receiving objects:  17% (1565/8970), 44.18 MiB | 80.00 KiB/s   Receiving objects:  17% (1565/8970), 44.31 MiB | 88.00 KiB/s   Receiving objects:  17% (1565/8970), 44.32 MiB | 87.00 KiB/s   Receiving objects:  17% (1565/8970), 44.39 MiB | 91.00 KiB/s   Receiving objects:  17% (1565/8970), 44.53 MiB | 103.00 KiB/s   Receiving objects:  17% (1565/8970), 44.71 MiB | 114.00 KiB/s   Receiving objects:  17% (1565/8970), 44.90 MiB | 120.00 KiB/s   Receiving objects:  17% (1565/8970), 45.00 MiB | 140.00 KiB/s   Receiving objects:  17% (1565/8970), 45.07 MiB | 131.00 KiB/s   Receiving objects:  17% (1565/8970), 45.11 MiB | 115.00 KiB/s   Receiving objects:  17% (1565/8970), 45.14 MiB | 107.00 KiB/s   Receiving objects:  17% (1565/8970), 45.18 MiB | 82.00 KiB/s   Receiving objects:  17% (1565/8970), 45.21 MiB | 44.00 KiB/s   Receiving objects:  17% (1565/8970), 45.24 MiB | 26.00 KiB/s   Receiving objects:  17% (1565/8970), 45.26 MiB | 20.00 KiB/s   Receiving objects:  17% (1565/8970), 45.27 MiB | 15.00 KiB/s   Receiving objects:  17% (1565/8970), 45.28 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 45.29 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 45.32 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 45.33 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 45.35 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 45.38 MiB | 10.00 KiB/s   Receiving objects:  17% (1565/8970), 45.41 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 45.45 MiB | 14.00 KiB/s   Receiving objects:  17% (1565/8970), 45.50 MiB | 16.00 KiB/s   Receiving objects:  17% (1565/8970), 45.50 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 45.57 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 45.58 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 45.60 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 45.66 MiB | 4.00 KiB/s   Receiving objects:  17% (1565/8970), 45.71 MiB | 4.00 KiB/s   Receiving objects:  17% (1565/8970), 45.92 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 46.26 MiB | 113.00 KiB/s   Receiving objects:  17% (1565/8970), 46.41 MiB | 131.00 KiB/s   Receiving objects:  17% (1565/8970), 46.56 MiB | 141.00 KiB/s   Receiving objects:  17% (1565/8970), 46.58 MiB | 51.00 KiB/s   Receiving objects:  17% (1565/8970), 46.59 MiB | 44.00 KiB/s   Receiving objects:  17% (1565/8970), 46.61 MiB | 37.00 KiB/s   Receiving objects:  17% (1565/8970), 46.64 MiB | 26.00 KiB/s   Receiving objects:  17% (1565/8970), 46.65 MiB | 18.00 KiB/s   Receiving objects:  17% (1565/8970), 46.68 MiB | 6.00 KiB/s   Receiving objects:  17% (1565/8970), 46.69 MiB | 5.00 KiB/s   Receiving objects:  17% (1565/8970), 46.72 MiB | 13.00 KiB/s   Receiving objects:  17% (1565/8970), 46.78 MiB | 24.00 KiB/s   Receiving objects:  17% (1565/8970), 46.83 MiB | 30.00 KiB/s   Receiving objects:  17% (1565/8970), 46.88 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 46.95 MiB | 56.00 KiB/s   Receiving objects:  17% (1565/8970), 47.07 MiB | 68.00 KiB/s   Receiving objects:  17% (1565/8970), 47.27 MiB | 96.00 KiB/s   Receiving objects:  17% (1565/8970), 47.29 MiB | 90.00 KiB/s   Receiving objects:  17% (1565/8970), 47.35 MiB | 85.00 KiB/s   Receiving objects:  17% (1565/8970), 47.43 MiB | 93.00 KiB/s   Receiving objects:  17% (1565/8970), 47.44 MiB | 52.00 KiB/s   Receiving objects:  17% (1565/8970), 47.46 MiB | 48.00 KiB/s   Receiving objects:  17% (1565/8970), 47.47 MiB | 44.00 KiB/s   Receiving objects:  17% (1565/8970), 47.61 MiB | 41.00 KiB/s   Receiving objects:  17% (1565/8970), 47.66 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 47.70 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 47.75 MiB | 45.00 KiB/s   Receiving objects:  17% (1565/8970), 47.76 MiB | 41.00 KiB/s   Receiving objects:  17% (1565/8970), 47.78 MiB | 42.00 KiB/s   Receiving objects:  17% (1565/8970), 47.79 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 47.79 MiB | 15.00 KiB/s   Receiving objects:  17% (1565/8970), 47.81 MiB | 13.00 KiB/s   Receiving objects:  17% (1565/8970), 47.82 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 47.82 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 47.84 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 47.86 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 47.89 MiB | 9.00 KiB/s   Receiving objects:  17% (1565/8970), 47.93 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 47.99 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 48.04 MiB | 15.00 KiB/s   Receiving objects:  17% (1565/8970), 48.07 MiB | 16.00 KiB/s   Receiving objects:  17% (1565/8970), 48.08 MiB | 14.00 KiB/s   Receiving objects:  17% (1565/8970), 48.12 MiB | 16.00 KiB/s   Receiving objects:  17% (1565/8970), 48.18 MiB | 39.00 KiB/s   Receiving objects:  17% (1565/8970), 48.21 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 48.29 MiB | 37.00 KiB/s   Receiving objects:  17% (1565/8970), 48.39 MiB | 46.00 KiB/s   Receiving objects:  17% (1565/8970), 48.48 MiB | 66.00 KiB/s   Receiving objects:  17% (1565/8970), 48.70 MiB | 90.00 KiB/s   Receiving objects:  17% (1565/8970), 48.99 MiB | 159.00 KiB/s   Receiving objects:  17% (1565/8970), 49.02 MiB | 137.00 KiB/s   Receiving objects:  17% (1565/8970), 49.17 MiB | 155.00 KiB/s   Receiving objects:  17% (1565/8970), 49.26 MiB | 154.00 KiB/s   Receiving objects:  17% (1565/8970), 49.45 MiB | 163.00 KiB/s   Receiving objects:  17% (1565/8970), 49.54 MiB | 129.00 KiB/s   Receiving objects:  17% (1565/8970), 49.61 MiB | 99.00 KiB/s   Receiving objects:  17% (1565/8970), 49.71 MiB | 107.00 KiB/s   Receiving objects:  17% (1565/8970), 49.75 MiB | 78.00 KiB/s   Receiving objects:  17% (1565/8970), 49.76 MiB | 58.00 KiB/s   Receiving objects:  17% (1565/8970), 49.78 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 49.82 MiB | 28.00 KiB/s   Receiving objects:  17% (1565/8970), 49.84 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 49.86 MiB | 29.00 KiB/s   Receiving objects:  17% (1565/8970), 49.88 MiB | 25.00 KiB/s   Receiving objects:  17% (1565/8970), 49.93 MiB | 20.00 KiB/s   Receiving objects:  17% (1565/8970), 49.99 MiB | 27.00 KiB/s   Receiving objects:  17% (1565/8970), 50.01 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 50.02 MiB | 31.00 KiB/s   Receiving objects:  17% (1565/8970), 50.05 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 50.12 MiB | 40.00 KiB/s   Receiving objects:  17% (1565/8970), 50.14 MiB | 33.00 KiB/s   Receiving objects:  17% (1565/8970), 50.17 MiB | 32.00 KiB/s   Receiving objects:  17% (1565/8970), 50.20 MiB | 31.00 KiB/s   Receiving objects:  17% (1565/8970), 50.25 MiB | 38.00 KiB/s   Receiving objects:  17% (1565/8970), 50.31 MiB | 35.00 KiB/s   Receiving objects:  17% (1565/8970), 50.34 MiB | 36.00 KiB/s   Receiving objects:  17% (1565/8970), 50.39 MiB | 44.00 KiB/s   Receiving objects:  17% (1565/8970), 50.43 MiB | 44.00 KiB/s   Receiving objects:  17% (1565/8970), 50.47 MiB | 45.00 KiB/s   Receiving objects:  17% (1565/8970), 50.54 MiB | 50.00 KiB/s   Receiving objects:  17% (1565/8970), 50.64 MiB | 61.00 KiB/s   Receiving objects:  17% (1565/8970), 50.65 MiB | 52.00 KiB/s   Receiving objects:  17% (1565/8970), 50.75 MiB | 64.00 KiB/s   Receiving objects:  17% (1565/8970), 50.82 MiB | 71.00 KiB/s   Receiving objects:  17% (1565/8970), 50.91 MiB | 71.00 KiB/s   Receiving objects:  17% (1565/8970), 50.93 MiB | 60.00 KiB/s   Receiving objects:  17% (1565/8970), 50.97 MiB | 57.00 KiB/s   Receiving objects:  17% (1565/8970), 50.99 MiB | 38.00 KiB/s   Receiving objects:  17% (1565/8970), 51.00 MiB | 38.00 KiB/s   Receiving objects:  17% (1565/8970), 51.02 MiB | 34.00 KiB/s   Receiving objects:  17% (1565/8970), 51.04 MiB | 27.00 KiB/s   Receiving objects:  17% (1565/8970), 51.04 MiB | 22.00 KiB/s   Receiving objects:  17% (1565/8970), 51.06 MiB | 18.00 KiB/s   Receiving objects:  17% (1565/8970), 51.07 MiB | 14.00 KiB/s   Receiving objects:  17% (1565/8970), 51.07 MiB | 12.00 KiB/s   Receiving objects:  17% (1565/8970), 51.09 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 51.10 MiB | 8.00 KiB/s   Receiving objects:  17% (1565/8970), 51.11 MiB | 7.00 KiB/s   Receiving objects:  17% (1565/8970), 51.11 MiB | 5.00 KiB/s   Receiving objects:  17% (1565/8970), 51.12 MiB | 5.00 KiB/s   Receiving objects:  17% (1565/8970), 51.13 MiB | 4.00 KiB/s   Receiving objects:  17% (1565/8970), 51.14 MiB | 4.00 KiB/s   Receiving objects:  17% (1565/8970), 51.14 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.15 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.17 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.18 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.18 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.19 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.20 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.21 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.21 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.22 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.24 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.25 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.28 MiB | 4.00 KiB/s   Receiving objects:  17% (1565/8970), 51.29 MiB | 2.00 KiB/s   Receiving objects:  17% (1565/8970), 51.31 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.32 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.32 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.33 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.34 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.35 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.36 MiB | 3.00 KiB/s   Receiving objects:  17% (1565/8970), 51.36 MiB | 2.00 KiB/s   Receiving objects:  17% (1565/8970), 51.
